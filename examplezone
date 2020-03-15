@@ -1,0 +1,14 @@
+$TTL    300     ; 10 minute TTL; 86400 for 1 day.
+
+@       IN      SOA     ns1.dns.live. root.examplezone. (
+                     2020031504         ; Serial (just increment each update)
+                          21600         ; Refresh
+                           3600         ; Retry
+                        2419200         ; Expire
+                          86400 )       ; Negative Cache TTL
+examplezone.     IN      NS      ns1.dns.live.
+examplezone.     IN      NS      ns2.dns.live.
+examplezone.     IN      NS      ns3.dns.live.
+
+@       IN      A       127.0.0.1
+www     IN      A       127.0.0.1
