@@ -42,7 +42,7 @@ cd bin
 ```
 8. Type this command and save the signature result -- you'll need it for the final update, it is a signature.
 ```
-./hsd-cli rpc signmessagewithprivkey <private key from step 6> `node /path/to/dnslive-cli/urlencode.js /path/to/dnslive-cli/zonefile` --api-key=<API KEY from step 3>
+./hsd-cli rpc signmessagewithprivkey <private key from step 7> `node /path/to/dnslive-cli/urlencode.js /path/to/dnslive-cli/zonefile` --api-key=<API KEY from step 3>
 ```
 9. Go to the /path/to/dnslive-cli directory
 ```
