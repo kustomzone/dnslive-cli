@@ -14,6 +14,7 @@ node dnslive.js zonefile signature-of-zonefile
 ```
 
 ### Example of full commands to get up and going (assumes [Bob Wallet by Kyokan](https://github.com/kyokan/bob-wallet))
+#### Please note, the zonefile filename must be the same as your domain.  So if your domain is 'jack' then call the zonefile 'jack'
 1. Set name resource records in Bob (Domain Manager -> Domain -> Records) to:
 ```
 NS ns1.dns.live.
@@ -45,7 +46,7 @@ cd bin
 ```
 9. Go to the /path/to/dnslive-cli directory
 ```
-node dnslive.js <zone file> <signature from step 7>
+node dnslive.js <zone file> <signature from step 8>
 ```
 10. Done.
 
