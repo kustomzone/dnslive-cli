@@ -3,48 +3,57 @@
 
 ### Install
 ```
-git clone https://github.com/realrasengan/dnslive
-cd dnslive
+git clone https://github.com/realrasengan/dnslive-cli
+cd dnslive-cli
 npm install request
 ```
 
 ### Use
 ```
-node dnslive.js zone-file signature
+node dnslive.js zonefile signature-of-zonefile
 ```
 
-### Example of full commands to get up and going (assumes Bob Wallet by Kyokan)
-1. Download hs-client
+### Example of full commands to get up and going (assumes [Bob Wallet by Kyokan](https://github.com/kyokan/bob-wallet))
+1. Set name resource records in Bob (Domain Manager -> Domain -> Records) to:
+```
+NS ns1.dns.live.
+NS ns2.dns.live.
+NS ns3.dns.live.
+```
+2. Copy the address that owns the domain to a temporary textfile/notepad.
+3. Get your API key from Bob Wallet  (Settings -> copy HSD API Key to a temporary textfile/notepad)
+4. Download hs-client
 ```
 git clone https://github.com/handshake-org/hs-client
 ```
-2. Type
+5. Once downloaded, type
 ```
 cd hs-client
 npm install --production
 ```
-3. Get your API key from Bob Wallet (Go to settings and copy HSD API Key)
-4. Go to your Domains list and find out the address that owns the domain that you want to have served.
-5. Type
+6. Then, type:
 ```
 cd bin
 ```
-6. Type this command and save the result somewhere -- it's your private key.
+7. Get your private key and save the result somewhere.  You want to do this on an air-gapped machine for maximum safety.
 ```
-./hsw-cli --id=allison dump <Address That owns your domain> --api-key=<API KEY from step 3>
+./hsw-cli --id=allison dump <address that owns the domain from step 1> --api-key=<API KEY from step 3>
 ```
-7. Type this command and save the signature result -- you'll need it for the final update, it is a signature.
+8. Type this command and save the signature result -- you'll need it for the final update, it is a signature.
 ```
-./hsd-cli rpc signmessagewithprivkey <private key from step 6> `node /path/to/dnslive/urlencode.js /path/to/dnslive/zonefile` --api-key=<API KEY from step 3>
+./hsd-cli rpc signmessagewithprivkey <private key from step 6> `node /path/to/dnslive-cli/urlencode.js /path/to/dnslive-cli/zonefile` --api-key=<API KEY from step 3>
 ```
-8. Go to the /path/to/dnslive directory
+9. Go to the /path/to/dnslive-cli directory
 ```
-node dnslive.js <zone file & domain> <signature from step 7>
+node dnslive.js <zone file> <signature from step 7>
 ```
-### Straight forward example assuming you have 2 folders at the same level, hs-client and dnslive (i.e., installed them in same folder):
+10. Done.
+
+### An more straight forward example
+#### assuming you have 2 folders at the same level, hs-client and dnslive-cli (i.e., installed them in same folder):
 ```
 cd hs-client/bin
-./hsd-cli rpc signmessagewithprivkey `./hsw-cli --id=allison dump ADDRESS --api-key=APIKEY `node ../../dnslive/urlencode.js ../../dnslive/ix` --api-key=APIKEY
+./hsd-cli rpc signmessagewithprivkey `./hsw-cli --id=allison dump ADDRESS_THAT_OWNS_DOMAIN --api-key=APIKEY_FROM_HSD `node ../../dnslive-cli/urlencode.js ../../dnslive/DOMAIN` --api-key=APIKEY_FROM_HSD
 ```
 > SIGNATUREOUTPUT
 ```
@@ -54,5 +63,6 @@ node dnslive.js DOMAIN SIGNATUREOUTPUT
 
 ### Copyright
 Copyright (c) 2020 The Handshake Community
+
 MIT Licensed.
 
