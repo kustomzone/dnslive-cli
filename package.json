@@ -1,6 +1,6 @@
 {
   "name": "dnslive",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "dns.live authoritative DNS for Handshake Naming System top level domains (TLDs).",
   "main": "dnslive.js",
   "dependencies": {
