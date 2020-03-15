@@ -54,11 +54,11 @@ node dnslive.js <zone file> <signature from step 8>
 #### Assumes you have 2 folders at the same level, hs-client and dnslive-cli (i.e., installed them in same folder):
 ```
 cd hs-client/bin
-./hsd-cli rpc signmessagewithprivkey `./hsw-cli --id=allison dump ADDRESS_THAT_OWNS_DOMAIN --api-key=APIKEY_FROM_HSD `node ../../dnslive-cli/urlencode.js ../../dnslive/DOMAIN` --api-key=APIKEY_FROM_HSD
+./hsd-cli rpc signmessagewithprivkey `./hsw-cli --id=allison dump ADDRESS_THAT_OWNS_DOMAIN --api-key=APIKEY_FROM_HSD `node ../../dnslive-cli/urlencode.js ../../dnslive-cli/DOMAIN` --api-key=APIKEY_FROM_HSD
 ```
 > SIGNATUREOUTPUT
 ```
-cd ../../dnslive
+cd ../../dnslive-cli
 node dnslive.js DOMAIN SIGNATUREOUTPUT
 ```
 
