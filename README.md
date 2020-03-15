@@ -3,7 +3,9 @@
 
 ### Install
 ```
-npm install dnslive
+git clone https://github.com/realrasengan/dnslive
+cd dnslive
+npm install request
 ```
 
 ### Use
