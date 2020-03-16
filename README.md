@@ -42,7 +42,7 @@ cd bin
 ```
 ./hsw-rpc selectwallet allison --api-key=APIKEY_FROM_HSD
 ```
-8. Type this command and save the signature result -- you'll need it for the final update, it is a signature.
+8. Type this command and save the signature result -- you'll need it for the final update, it is a signature.  Note: The below signmessage command is currently not working, but a PR has been submitted to hsd [PR 393, hsd](https://github.com/handshake-org/hsd/pull/393).  Advanced users can use the `hsd-rpc signmessagewithprivkey` function after getting the associated private key with `./hsw-cli dump`.  Everyone else, I apologize, but its best to wait until the fix is merged to avoid risking your private key.
 ```
 ./hsw-rpc signmessage ADDRESS_THAT_OWNS_DOMAIN `node /path/to/dnslive-cli/urlencode.js /path/to/dnslive-cli/zonefile` --api-key=<API KEY from step 3>
 ```
