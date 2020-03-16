@@ -36,7 +36,7 @@ npm install --production
 ```
 cd bin
 ```
-7. Get your private key and save the result somewhere.  You want to do this on an air-gapped machine for maximum safety.
+7. Get your private key and save the result somewhere safe and secure.  Losing this key or letting someone see it could mean losing your funds and domain.
 ```
 ./hsw-cli --id=allison dump <address that owns the domain from step 1> --api-key=<API KEY from step 3>
 ```
