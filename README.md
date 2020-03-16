@@ -38,25 +38,21 @@ npm install --production
 ```
 cd bin
 ```
-7. Get your private key and save the result somewhere safe and secure.  Losing this key or letting someone see it could mean losing your funds and domain.
+7. Type this command and save the signature result -- you'll need it for the final update, it is a signature.
 ```
-./hsw-cli --id=allison dump <address that owns the domain from step 1> --api-key=<API KEY from step 3>
+./hsw-rpc signmessage ADDRESS_THAT_OWNS_DOMAIN `node /path/to/dnslive-cli/urlencode.js /path/to/dnslive-cli/zonefile` --api-key=<API KEY from step 3>
 ```
-8. Type this command and save the signature result -- you'll need it for the final update, it is a signature.
-```
-./hsd-cli rpc signmessagewithprivkey <private key from step 7> `node /path/to/dnslive-cli/urlencode.js /path/to/dnslive-cli/zonefile` --api-key=<API KEY from step 3>
-```
-9. Go to the /path/to/dnslive-cli directory
+8. Go to the /path/to/dnslive-cli directory
 ```
 node dnslive.js <zone file> <signature from step 8>
 ```
-10. Done.
+9. Done.
 
 ### A more straight forward example
 #### Assumes you have 2 folders at the same level, hs-client and dnslive-cli (i.e., installed them in same folder):
 ```
 cd hs-client/bin
-./hsd-cli rpc signmessagewithprivkey `./hsw-cli --id=allison dump ADDRESS_THAT_OWNS_DOMAIN --api-key=APIKEY_FROM_HSD `node ../../dnslive-cli/urlencode.js ../../dnslive-cli/DOMAIN` --api-key=APIKEY_FROM_HSD
+./hsw-rpc signmessage ADDRESS_THAT_OWNS_DOMAIN `node ../../dnslive-cli/urlencode.js ../../dnslive-cli/DOMAIN` --api-key=APIKEY_FROM_HSD
 ```
 > SIGNATUREOUTPUT
 ```
