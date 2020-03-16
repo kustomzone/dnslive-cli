@@ -1,5 +1,7 @@
 # dnslive
 ## Quick and simple zone hosting for your Handshake Naming System (HNS) Top Level Domain (TLD)
+Simply provide a signature of the zonefile created with the key associated with ownership of the domain to authenticate.
+
 
 ### Install
 ```
