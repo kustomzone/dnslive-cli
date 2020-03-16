@@ -38,20 +38,25 @@ npm install --production
 ```
 cd bin
 ```
-7. Type this command and save the signature result -- you'll need it for the final update, it is a signature.
+7. Type this in to select the proper wallet in Bob.
+```
+./hsw-rpc selectwallet allison --api-key=APIKEY_FROM_HSD
+```
+8. Type this command and save the signature result -- you'll need it for the final update, it is a signature.
 ```
 ./hsw-rpc signmessage ADDRESS_THAT_OWNS_DOMAIN `node /path/to/dnslive-cli/urlencode.js /path/to/dnslive-cli/zonefile` --api-key=<API KEY from step 3>
 ```
-8. Go to the /path/to/dnslive-cli directory
+9. Go to the /path/to/dnslive-cli directory
 ```
 node dnslive.js <zone file> <signature from step 8>
 ```
-9. Done.
+10. Done.
 
 ### A more straight forward example
 #### Assumes you have 2 folders at the same level, hs-client and dnslive-cli (i.e., installed them in same folder):
 ```
 cd hs-client/bin
+./hsw-rpc selectwallet allison --api-key=APIKEY_FROM_HSD
 ./hsw-rpc signmessage ADDRESS_THAT_OWNS_DOMAIN `node ../../dnslive-cli/urlencode.js ../../dnslive-cli/DOMAIN` --api-key=APIKEY_FROM_HSD
 ```
 > SIGNATUREOUTPUT
