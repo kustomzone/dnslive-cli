@@ -4,7 +4,7 @@ Simply provide a signature of the zonefile created with the key associated with 
 
 After you setup your zone, you can host your website with [DNS Live Free Web Hosting](https://github.com/realrasengan/dnslive-webhost).
 
-This should not be used for production quality websites/DNS but is great for personal use!
+This should not be used for production quality websites/DNS but is great for personal use!  For more info see [dns.live](https://dns.live).
 
 ### Install
 ```
